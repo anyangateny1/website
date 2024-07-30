@@ -1,24 +1,46 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
+import { Box, Button, Stack } from '@chakra-ui/react';
+import Homepage from './Homepage';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <Router>
+      <Box 
+        display="flex" 
+        flexDirection="column" 
+        alignItems="center" 
+        minHeight="100vh" 
+        padding="10px"
+        bg='black'
+      >
+        <Box 
+          width="100%" 
+          maxWidth="55%"
+          padding="10px" 
+          borderBottom="1px solid #ddd"
+          rounded='lg' 
+          bg='white'
         >
-          Learn React
-        </a>
-      </header>
-    </div>
+          <Stack spacing={10} direction="row" justifyContent="center" alignItems="center">
+            <Link to="/">
+              <Button colorScheme="teal">Home</Button>
+            </Link>
+            <Link to="/about">
+              <Button colorScheme="teal">About</Button>
+            </Link>
+            <Link to="/blog">
+              <Button colorScheme="teal">Blog</Button>
+            </Link>
+          </Stack>
+        </Box>
+
+        <Box width="100%">
+          <Routes>
+            <Route path="/" element={<Homepage />}/>
+          </Routes>
+        </Box>
+      </Box>
+    </Router>
   );
 }
 
