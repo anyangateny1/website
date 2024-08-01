@@ -10,7 +10,5 @@ public class SimpleHttpServer {
         server.start();
         System.out.println("Server started on port 8000");
     }
-
-    
 }
 

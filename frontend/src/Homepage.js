@@ -1,7 +1,8 @@
-import { Box, Image, Link, IconButton, Heading, Stack, Button, SimpleGrid } from '@chakra-ui/react'
+import { Box, Image, Link, IconButton, Heading, Stack, Button } from '@chakra-ui/react'
 import { ChevronRightIcon } from '@chakra-ui/icons'
 import { BsGithub, BsLinkedin } from 'react-icons/bs'
 import { BioSection, BioYear } from './components/sections'
+import Projects  from './components/projects'
 
 function Homepage() {
   return (
@@ -89,12 +90,7 @@ function Homepage() {
             Projects
           </Heading>
           <Box marginTop='10px' marginBottom='5px'>
-            <SimpleGrid columns={2} spacing={25}>
-              <Image src='https://bit.ly/dan-abramov' boxSize="80%"/>
-              <Image src='https://bit.ly/dan-abramov' boxSize="80%"/>
-              <Image src='https://bit.ly/dan-abramov' boxSize="80%"/>
-              <Image src='https://bit.ly/dan-abramov' boxSize="80%"/>
-            </SimpleGrid>
+            <Projects></Projects>
           </Box>
         </Box>
 
