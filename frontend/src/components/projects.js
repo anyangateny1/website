@@ -7,7 +7,7 @@ const parseTags = ({ tags }) => {
   const tagLines = tags.split(' ');
 
   return (
-    <Stack direction="row" spacing="3">
+    <Stack direction="row" spacing="3" wrap="wrap">
       {tagLines.map((tag, index) => 
         tag ? (
           <Text key={index} 
@@ -47,11 +47,10 @@ const Projects = () => {
   }, []);
 
   return (
-    <SimpleGrid columns={2} spacing={25}>
+    <SimpleGrid columns={{ base: 1, sm: 2 }} spacing={5}>
       {error && <p>{error}</p>}
        {projects.map(project => (
               <Box 
-              border="1px"
               rounded="lg"
               padding="10px"
               display="flex"
@@ -59,7 +58,7 @@ const Projects = () => {
               alignItems="center"
               flexDirection="column" key={project.id}>
               <Text fontSize="sm" 
-              bg="gray" 
+              bg="teal" 
               paddingLeft='5px' 
               paddingRight='5px' 
               paddingBottom='2px' 
@@ -68,7 +67,7 @@ const Projects = () => {
               margin={2}>
               {project.project_date}
               </Text>
-                <Image src={project.img_url} alt={project.project_name} boxSize="100%" marginTop="5px" justifySelf="center"/>                
+                <Image src={project.img_url} alt={project.project_name} w="100%" h="70%" margin="5px" justifySelf="center"/>                
                 <Heading fontSize="xl">{project.project_name}</Heading>
                 {parseTags({ tags: project.tags })}              
                 </Box>

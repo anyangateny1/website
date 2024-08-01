@@ -8,31 +8,34 @@ function App() {
       <Box 
         display="flex" 
         flexDirection="column" 
-        alignItems="center" 
+        alignItems="center"
         minHeight="100vh" 
         padding="10px"
-        bg='black'
       >
         <Box 
-          width="100%" 
-          maxWidth="55%"
+          width={{ base: "100%", md: "55%" }}
+          maxWidth={{ base: "100%", md: "55%" }} 
           padding="10px" 
           borderBottom="1px solid #ddd"
           rounded='lg' 
-          bg='white'
         >
-          <Stack spacing={10} direction="row" justifyContent="center" alignItems="center">
+          <Stack 
+          wrap="shrink"
+          spacing={{base: 2, md: 10}} 
+          direction="row" 
+          justifyContent="center" 
+          alignItems="center">
             <Link to="/">
-              <Button colorScheme="teal">Anyang Ateny</Button>
+              <Button colorScheme="teal" size={{ base: "sm", md: "md" }}>Anyang Ateny</Button>
             </Link>
             <Link to="/projects">
-              <Button colorScheme="teal">Projects</Button>
+              <Button colorScheme="teal" size={{ base: "sm", md: "md" }}>Projects</Button>
             </Link>
             <Link to="/about">
-              <Button colorScheme="teal">About</Button>
+              <Button colorScheme="teal" size={{ base: "sm", md: "md" }}>About</Button>
             </Link>
             <Link to="/blog">
-              <Button colorScheme="teal">Blog</Button>
+              <Button colorScheme="teal" size={{ base: "sm", md: "md" }}>Blog</Button>
             </Link>
           </Stack>
         </Box>
