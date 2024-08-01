@@ -23,7 +23,10 @@ function App() {
         >
           <Stack spacing={10} direction="row" justifyContent="center" alignItems="center">
             <Link to="/">
-              <Button colorScheme="teal">Home</Button>
+              <Button colorScheme="teal">Anyang Ateny</Button>
+            </Link>
+            <Link to="/projects">
+              <Button colorScheme="teal">Projects</Button>
             </Link>
             <Link to="/about">
               <Button colorScheme="teal">About</Button>
