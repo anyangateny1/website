@@ -1,6 +1,8 @@
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import { Box, Button, Stack } from '@chakra-ui/react';
 import Homepage from './Homepage';
+import Projects from './Projects';
+import './index.css'
 
 function App() {
   return (
@@ -26,7 +28,7 @@ function App() {
           justifyContent="center" 
           alignItems="center">
             <Link to="/">
-              <Button colorScheme="teal" size={{ base: "sm", md: "md" }}>Anyang Ateny</Button>
+              <Button colorScheme="teal" size={{ base: "sm", md: "md" }}>Home</Button>
             </Link>
             <Link to="/projects">
               <Button colorScheme="teal" size={{ base: "sm", md: "md" }}>Projects</Button>
@@ -43,6 +45,7 @@ function App() {
         <Box width="100%">
           <Routes>
             <Route path="/" element={<Homepage />}/>
+            <Route path="/projects" element={<Projects />}/>
           </Routes>
         </Box>
       </Box>

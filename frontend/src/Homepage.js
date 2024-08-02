@@ -2,7 +2,7 @@ import { Box, Image, Link, IconButton, Heading, Stack, Button } from '@chakra-ui
 import { ChevronRightIcon } from '@chakra-ui/icons'
 import { BsGithub, BsLinkedin } from 'react-icons/bs'
 import { BioSection, BioYear } from './components/sections'
-import Projects  from './components/projects'
+import { SmallTiles }  from './components/projectTiles'
 
 function Homepage() {
   return (
@@ -12,8 +12,8 @@ function Homepage() {
       justifyContent="center" 
     >
       <Box 
-        width={{ base: "100%", md: "55%" }}
-        maxWidth={{ base: "100%", md: "55%" }} 
+        width={{ base: "100%", md: "50%" }}
+        maxWidth={{ base: "100%", md: "50%" }} 
         rounded='lg' 
         padding="25px" 
         bg='white'
@@ -90,7 +90,7 @@ function Homepage() {
             Projects
           </Heading>
           <Box marginTop='10px' marginBottom='5px'>
-            <Projects></Projects>
+            <SmallTiles></SmallTiles>
           </Box>
         </Box>
 
