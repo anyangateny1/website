@@ -26,19 +26,19 @@ function About() {
           </Heading>
             <SimpleGrid columns={{ base: 1, md: 3 }} spacing="15px" marginTop={3}>
                   <Box>
-                    <Heading fontSize="15px">Web-Development:</Heading>
+                    <Heading fontSize="15px" mb={3}>Web-Development:</Heading>
                     <Text>
                       I enjoy crafting interactive and responsive web applications. My projects often involve HTML, CSS, JavaScript, and frameworks like Bootstrap and Chakra UI. I take pride in solving intricate styling challenges to ensure seamless user experiences.
                     </Text>
                   </Box>
                   <Box>
-                    <Heading fontSize="15px">Distributed Systems and Networking:</Heading>
+                    <Heading fontSize="15px" mb={3}>Distributed Systems and Networking:</Heading>
                     <Text>
                       As a prospective major in Distributed Systems and Networking, I am fascinated by the complexities of networked systems and how they can be optimized for performance and reliability.
                     </Text>
                   </Box>
                   <Box>
-                    <Heading fontSize="15px">Testing and QA:</Heading>
+                    <Heading fontSize="15px" mb={3}>Testing and QA:</Heading>
                     <Text>
                       Leveraging Flask and Selenium, I develop applications that automate data scraping and streamline web interactions.
                     </Text>
