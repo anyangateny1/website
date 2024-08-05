@@ -9,11 +9,13 @@ function Projects() {
       justifyContent="center" 
     >
       <Box 
-        width={{ base: "100%", md: "55%" }}
-        maxWidth={{ base: "100%", md: "55%" }} 
+        width={{ base: "100%", md: "66%" }}
+        maxWidth={{ base: "100%", md: "66%" }} 
         rounded='lg' 
-        padding="25px" 
         bg='white'
+        display="flex" 
+        alignItems="center" 
+        justifyContent="center"
       >
         <ProjectTiles></ProjectTiles>
 

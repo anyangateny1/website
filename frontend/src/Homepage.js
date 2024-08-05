@@ -3,6 +3,8 @@ import { ChevronRightIcon } from '@chakra-ui/icons'
 import { BsGithub, BsLinkedin } from 'react-icons/bs'
 import { BioSection, BioYear } from './components/sections'
 import { SmallTiles }  from './components/projectTiles'
+import { Link as RouterLink } from 'react-router-dom';
+
 
 function Homepage() {
   return (
@@ -12,10 +14,9 @@ function Homepage() {
       justifyContent="center" 
     >
       <Box 
-        width={{ base: "100%", md: "50%" }}
-        maxWidth={{ base: "100%", md: "50%" }} 
+        width={{ base: "100%", md: "66%" }}
+        maxWidth={{ base: "100%", md: "66%" }} 
         rounded='lg' 
-        padding="25px" 
         bg='white'
       >
         <Box 
@@ -24,7 +25,7 @@ function Homepage() {
         alignItems="center"
         marginBottom={10}
         marginTop={10}>
-        <Image src='https://f4.bcbits.com/img/a0822881135_10.jpg' boxSize="40%"/>
+        <Image src='https://f4.bcbits.com/img/a0822881135_10.jpg' boxSize={{base: "90%", md: "40%"}}/>
         </Box>
         <Box display={{ md: 'flex' }} >
           <Box flexGrow={1}>
@@ -67,6 +68,8 @@ function Homepage() {
           </p>
         </Box>
 
+        
+
         <Box marginTop='10px' marginBottom='5px'>
           <Heading fontSize='25px' marginTop='10px' marginBottom='5px'>
             I'm interested in...
@@ -85,12 +88,19 @@ function Homepage() {
           </BioSection>
         </Box>
 
-        <Box marginTop='10px' marginBottom='5px'>
-          <Heading fontSize='25px' marginTop='10px' marginBottom='10px'>
-            Projects
+        <Box marginTop='10px' marginBottom='5px' display="flex" flexDirection="column">
+          <Heading fontSize='25px' marginTop='10px'>
+            Things I'm proud of!
           </Heading>
-          <Box marginTop='10px' marginBottom='5px'>
+          <Box marginTop='10px' marginBottom='10px'>
             <SmallTiles></SmallTiles>
+          </Box>
+          <Box display="flex" alignItems="center" justifyContent="center" marginTop='10px'>
+            <RouterLink to='/projects'>
+              <Button rightIcon={<ChevronRightIcon />} colorScheme='teal' size='md' variant='solid'>
+                View all projects
+              </Button>
+            </RouterLink>
           </Box>
         </Box>
 

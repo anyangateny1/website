@@ -11,15 +11,13 @@ const parseTags = ({ tags }) => {
       {tagLines.map((tag, index) => 
         tag ? (
           <Text key={index} 
-          fontSize="sm" 
+          fontSize="xs" 
           bg="teal" 
-          paddingLeft='5px' 
-          paddingRight='5px' 
-          paddingBottom='2px' 
+          padding="4px"
           color='white'
-          rounded='lg'
+          fontWeight='bold'
           >
-            {tag}
+            {tag.toUpperCase()}
           </Text>
         ) : (
           <Text key={index} fontSize="sm" bg='white' p={1} mr={1}>
@@ -88,7 +86,6 @@ export const SmallTiles = () => {
        {SmallTiles.slice(1, 3).map(project => (
               <Box 
               rounded="lg"
-              padding="10px"
               display="flex"
               justifyContent="center"
               alignItems="center"

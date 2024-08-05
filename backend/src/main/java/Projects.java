@@ -10,7 +10,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
-public class MyHandler implements HttpHandler {
+public class Projects implements HttpHandler {
     @Override
     public void handle(HttpExchange exchange) throws IOException {
         if ("GET".equals(exchange.getRequestMethod())) {
@@ -30,21 +30,20 @@ public class MyHandler implements HttpHandler {
     }
 
     private String getProjects() {
+        
         String response = "";
         Connection conn = null;
         Statement stmt = null;
         try {
-            // Load the SQLite JDBC driver
+
             Class.forName("org.sqlite.JDBC");
 
-            // Connect to the SQLite database
-            String dbPath = "src/main/resources/website.db"; // Ensure correct path to your DB file
+            String dbPath = "src/main/resources/website.db"; 
             conn = DriverManager.getConnection("jdbc:sqlite:" + dbPath);
             stmt = conn.createStatement();
             String sql = "SELECT id, project_name, project_date, desc, img_url, tags FROM projects";
             ResultSet rs = stmt.executeQuery(sql);
 
-            // Create a JSON array to hold the project data
             JSONArray projectsArray = new JSONArray();
             while (rs.next()) {
                 JSONObject project = new JSONObject();

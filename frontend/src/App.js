@@ -2,7 +2,8 @@ import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import { Box, Button, Stack } from '@chakra-ui/react';
 import Homepage from './Homepage';
 import Projects from './Projects';
-import './index.css'
+import About from './About';
+import './index.css';
 
 function App() {
   return (
@@ -13,20 +14,21 @@ function App() {
         alignItems="center"
         minHeight="100vh" 
         padding="10px"
+        width="100%"
       >
         <Box 
           width={{ base: "100%", md: "55%" }}
-          maxWidth={{ base: "100%", md: "55%" }} 
           padding="10px" 
           borderBottom="1px solid #ddd"
-          rounded='lg' 
+          rounded="lg"
+          mb="4"
         >
           <Stack 
-          wrap="shrink"
-          spacing={{base: 2, md: 10}} 
-          direction="row" 
-          justifyContent="center" 
-          alignItems="center">
+            spacing={{ base: 10, md: 10 }} 
+            direction="row" 
+            justifyContent="center" 
+            alignItems="center"
+          >
             <Link to="/">
               <Button colorScheme="teal" size={{ base: "sm", md: "md" }}>Home</Button>
             </Link>
@@ -42,10 +44,11 @@ function App() {
           </Stack>
         </Box>
 
-        <Box width="100%">
+        <Box width="100%" flex="1">
           <Routes>
-            <Route path="/" element={<Homepage />}/>
-            <Route path="/projects" element={<Projects />}/>
+            <Route path="/" element={<Homepage />} />
+            <Route path="/projects" element={<Projects />} />
+            <Route path="/about" element={<About />} />
           </Routes>
         </Box>
       </Box>
