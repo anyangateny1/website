@@ -5,14 +5,14 @@ import java.net.InetSocketAddress;
 
 public class SimpleHttpServer {
     public static void main(String[] args) throws IOException {
-        HttpServer server = HttpServer.create(new InetSocketAddress(8000), 0);
-
+        int port = Integer.parseInt(System.getenv("PORT"));
+        HttpServer server = HttpServer.create(new InetSocketAddress(port), 0);
+        
         server.createContext("/projects", new Projects());
-
 
         server.setExecutor(null); 
         server.start();
-        System.out.println("Server started on port 8000");
+        System.out.println("Server started on port " + port);
     }
 }
 
