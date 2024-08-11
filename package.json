@@ -4,7 +4,7 @@
   "description": "",
   "scripts": {
     "start": "concurrently \"npm run start:backend\" \"npm run start:frontend\"",
-    "start:backend": "cd backend && mvn clean && mvn compile && mvn exec:java",
+    "start:backend": "cd backend && mvn clean package && java -jar target/SimpleHttpServer-1.0-SNAPSHOT-jar-with-dependencies.jar",
     "start:frontend": "cd frontend && npm start"
   },
   "keywords": [],
