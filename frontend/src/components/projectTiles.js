@@ -34,7 +34,7 @@ const ProjectTiles = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    axios.get('http://localhost:8000/getProjects')
+    axios.get('http://198.211.98.154:8000/getProjects')
       .then(response => {
         setProjects(response.data);
       })
@@ -70,7 +70,7 @@ export const SmallTiles = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    axios.get('http://localhost:8000/getProjects')
+    axios.get('http://198.211.98.154:8000/getProjects')
       .then(response => {
         setProjects(response.data);
       })
