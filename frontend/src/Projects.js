@@ -9,8 +9,8 @@ function Projects() {
       justifyContent="center" 
     >
       <Box 
-        width={{ base: "100%", md: "66%" }}
-        maxWidth={{ base: "100%", md: "66%" }} 
+        width={{ base: "100%", md: "55%" }}
+        maxWidth={{ base: "100%", md: "55%" }} 
         rounded='lg' 
         bg='white'
         display="flex" 

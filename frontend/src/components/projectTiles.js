@@ -55,10 +55,22 @@ const ProjectTiles = () => {
               justifyContent="center"
               alignItems="center"
               flexDirection="column" key={project.id}>
-                <Image src={project.img_url} alt={project.project_name} w="100%" h="70%" margin="5px" justifySelf="center"/>                
+                <Image src={project.img_url} alt={project.project_name} w="100%" h="70%" maxWidth="310px" maxHeight="210px" margin="5px" justifySelf="center"/>                
                 <Heading fontSize="2xl" marginTop='5px'>{project.project_name}</Heading>
-                <Text fontSize="sm" textAlign="center" marginBottom={1}>{project.desc}</Text>
-                {parseTags({ tags: project.tags })}              
+
+                <Text 
+                    fontSize="sm" 
+                    overflow="hidden" 
+                    textAlign="center" 
+                    marginBottom={1}
+                    noOfLines={3}
+                    height="50px"
+                >
+                  {project.description}
+                </Text>                
+                
+                {parseTags({ tags: project.tags })}      
+                        
                 </Box>
         ))}
     </SimpleGrid>

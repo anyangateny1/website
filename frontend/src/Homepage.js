@@ -14,8 +14,8 @@ function Homepage() {
       justifyContent="center" 
     >
       <Box 
-        width={{ base: "100%", md: "66%" }}
-        maxWidth={{ base: "100%", md: "66%" }} 
+        width={{ base: "100%", md: "55%" }}
+        maxWidth={{ base: "100%", md: "55%" }} 
         rounded='lg' 
         bg='white'
       >
@@ -33,7 +33,7 @@ function Homepage() {
               Anyang Ateny
             </Heading>
             <Stack mt={4} spacing={4} direction='row' align='center'>
-              <Link href="/files/Anyang Ateny Resume.pdf" target="_blank">
+              <Link href="/files/Anyang Intern FINAL.pdf" target="_blank">
                 <Button rightIcon={<ChevronRightIcon />} colorScheme='teal' size='md' variant='solid'>
                   Résumé / CV
                 </Button>
@@ -102,12 +102,6 @@ function Homepage() {
               </Button>
             </RouterLink>
           </Box>
-        </Box>
-
-        <Box marginTop='10px' marginBottom='5px'>
-          <Heading fontSize='25px' marginTop='10px' marginBottom='5px'>
-            Blog
-          </Heading>
         </Box>
       </Box>
     </Box>

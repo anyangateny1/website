@@ -24,7 +24,7 @@ function App() {
           mb="4"
         >
           <Stack 
-            spacing={{ base: 10, md: 10 }} 
+            spacing={{ base: 10, md: 100 }} 
             direction="row" 
             justifyContent="center" 
             alignItems="center"
@@ -37,9 +37,6 @@ function App() {
             </Link>
             <Link to="/about">
               <Button colorScheme="teal" size={{ base: "sm", md: "md" }}>About</Button>
-            </Link>
-            <Link to="/blog">
-              <Button colorScheme="teal" size={{ base: "sm", md: "md" }}>Blog</Button>
             </Link>
           </Stack>
         </Box>
