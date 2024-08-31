@@ -55,7 +55,7 @@ const ProjectTiles = () => {
               justifyContent="center"
               alignItems="center"
               flexDirection="column" key={project.id}>
-                <Image src={project.img_url} alt={project.project_name} w="100%" h="70%" maxWidth="310px" maxHeight="210px" margin="5px" justifySelf="center"/>                
+                <Image src={project.img_url} alt={project.project_name} w="100%" h="70%" maxHeight="210px" margin="5px" justifySelf="center"/>                
                 <Heading fontSize="2xl" marginTop='5px'>{project.project_name}</Heading>
 
                 <Text 

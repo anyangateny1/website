@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { Box, FormControl, FormLabel, Input, Textarea, Button, Stack, Heading } from '@chakra-ui/react';
+import { Box, FormControl, FormLabel, Input, Textarea, Button, Stack, Heading, Alert, AlertIcon, AlertTitle } from '@chakra-ui/react';
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
@@ -8,6 +8,9 @@ const ContactForm = () => {
     email: '',
     message: '',
   });
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(null);
+  const [success, setSuccess] = useState(false);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -19,15 +22,21 @@ const ContactForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-  
+    setIsLoading(true);
+    setError(null);
+    setSuccess(false);
+
     axios.post('/contact', formData)
       .then(response => {
-        alert('Form submitted successfully!');
-        setFormData({ name: '', email: '', message: '' }); 
+        setSuccess(true);
+        setFormData({ name: '', email: '', message: '' });
       })
       .catch(error => {
         console.error('There was an error!', error);
-        alert('There was an error submitting the form.');
+        setError('There was an error submitting the form.');
+      })
+      .finally(() => {
+        setIsLoading(false);
       });
   };
 
@@ -49,6 +58,7 @@ const ContactForm = () => {
               name="name"
               value={formData.name}
               onChange={handleInputChange}
+              isRequired
             />
           </FormControl>
           <FormControl id="email" mb={4}>
@@ -58,6 +68,7 @@ const ContactForm = () => {
               name="email"
               value={formData.email}
               onChange={handleInputChange}
+              isRequired
             />
           </FormControl>
           <FormControl id="message" mb={4}>
@@ -67,10 +78,23 @@ const ContactForm = () => {
               name="message"
               value={formData.message}
               onChange={handleInputChange}
+              isRequired
             />
           </FormControl>
-          <Button colorScheme="teal" width="full" type="submit">Submit</Button>
+          <Button colorScheme="teal" width="full" type="submit" isLoading={isLoading}>Submit</Button>
         </Stack>
+        {success && (
+          <Alert status="success" mt={4}>
+            <AlertIcon />
+            <AlertTitle>Form submitted successfully!</AlertTitle>
+          </Alert>
+        )}
+        {error && (
+          <Alert status="error" mt={4}>
+            <AlertIcon />
+            <AlertTitle>{error}</AlertTitle>
+          </Alert>
+        )}
       </form>
     </Box>
   );
