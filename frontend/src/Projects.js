@@ -1,8 +1,10 @@
-import { Box } from '@chakra-ui/react'
+import { Box, ScaleFade } from '@chakra-ui/react'
 import ProjectTiles  from './components/projectTiles'
 
 function Projects() {
   return (
+
+    <ScaleFade initialScale={0.9} in={true}>
     <Box 
       display="flex" 
       alignItems="center" 
@@ -22,7 +24,7 @@ function Projects() {
     </Box>
 
 </Box>
-
+</ScaleFade>
   );
 }
 

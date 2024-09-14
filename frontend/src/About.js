@@ -1,8 +1,9 @@
-import { Box, Heading, Text, SimpleGrid } from '@chakra-ui/react';
+import { Box, Heading, Text, SimpleGrid, ScaleFade } from '@chakra-ui/react';
 import ContactForm from './components/contact';
 
 function About() {  
     return (
+    <ScaleFade initialScale={0.9} in={true}>
     <Box 
       display="flex" 
       alignItems="center" 
@@ -49,6 +50,7 @@ function About() {
         <ContactForm />
       </Box>
       </Box>
+      </ScaleFade>
     );
 }
 

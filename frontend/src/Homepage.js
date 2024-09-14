@@ -1,4 +1,4 @@
-import { Box, Image, Link, IconButton, Heading, Stack, Button } from '@chakra-ui/react'
+import { Box, Image, Link, IconButton, Heading, Stack, Button, ScaleFade} from '@chakra-ui/react'
 import { ChevronRightIcon } from '@chakra-ui/icons'
 import { BsGithub, BsLinkedin } from 'react-icons/bs'
 import { BioSection, BioYear } from './components/sections'
@@ -8,6 +8,7 @@ import { Link as RouterLink } from 'react-router-dom';
 
 function Homepage() {
   return (
+    <ScaleFade initialScale={0.9} in={true}>
     <Box 
       display="flex" 
       alignItems="center" 
@@ -19,14 +20,6 @@ function Homepage() {
         rounded='lg' 
         bg='white'
       >
-        <Box 
-        display="flex"
-        justifyContent="center"
-        alignItems="center"
-        marginBottom={10}
-        marginTop={10}>
-        <Image src='https://f4.bcbits.com/img/a0822881135_10.jpg' boxSize={{base: "90%", md: "40%"}}/>
-        </Box>
         <Box display={{ md: 'flex' }} >
           <Box flexGrow={1}>
             <Heading as="h2" variant="page-title">
@@ -105,6 +98,7 @@ function Homepage() {
         </Box>
       </Box>
     </Box>
+    </ScaleFade>
   );
 }
 
