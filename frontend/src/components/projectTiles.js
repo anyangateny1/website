@@ -1,6 +1,6 @@
 import React from 'react';
 import { SimpleGrid, Box, Text, Image, Heading, Stack } from '@chakra-ui/react';
-import useProjects from './useProjects'; // Adjust the path if necessary
+import useProjects from './useProjects'; 
 
 const parseTags = ({ tags }) => {
   const tagLines = tags.split(' ');

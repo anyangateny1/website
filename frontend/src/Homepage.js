@@ -12,7 +12,8 @@ function Homepage() {
     <Box 
       display="flex" 
       alignItems="center" 
-      justifyContent="center" 
+      justifyContent="center"
+      marginTop={4} 
     >
       <Box 
         width={{ base: "100%", md: "55%" }}

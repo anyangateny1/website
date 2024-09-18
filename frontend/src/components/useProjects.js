@@ -9,7 +9,7 @@ const useProjects = () => {
     if (!localStorage.getItem('projects')) {
       const fetchProjects = async () => {
         try {
-          const response = await axios.get('http://localhost:8000/getProjects');
+          const response = await axios.get('/getProjects');
           localStorage.setItem('projects', JSON.stringify(response.data));  
         } catch (error) {
           setError('Error fetching data');

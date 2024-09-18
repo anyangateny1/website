@@ -21,7 +21,6 @@ function App() {
           padding="10px" 
           borderBottom="1px solid #ddd"
           rounded="lg"
-          mb="4"
         >
           <Stack 
             spacing={{ base: 10, md: 100 }} 
