@@ -27,7 +27,7 @@ const ContactForm = () => {
     setSuccess(false);
 
     axios.post('/contact', formData)
-      .then(response => {
+          .then(response => {
         setSuccess(true);
         setFormData({ name: '', email: '', message: '' });
       })

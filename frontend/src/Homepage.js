@@ -5,7 +5,6 @@ import { BioSection, BioYear } from './components/sections'
 import { SmallTiles }  from './components/projectTiles'
 import { Link as RouterLink } from 'react-router-dom';
 
-
 function Homepage() {
   return (
     <ScaleFade initialScale={0.9} in={true}>

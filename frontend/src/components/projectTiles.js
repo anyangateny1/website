@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { SimpleGrid, Box, Text, Image, Heading, Stack } from '@chakra-ui/react';
 import useProjects from './useProjects'; 
 
@@ -57,12 +57,17 @@ const ProjectTiles = () => {
   );
 };
 
-export const SmallTiles = () => {
-  const { projects, error } = useProjects();
+const SmallTiles = () => {
+  const { projects, error, fetchProjects } = useProjects();
+
+  useEffect(() => {
+    fetchProjects();
+  }, [fetchProjects]);
+
+  if (error) return <p>{error}</p>;
 
   return (
     <SimpleGrid columns={{ base: 1, sm: 2 }} spacing={5}>
-      {error && <p>{error}</p>}
       {projects.slice(1, 3).map(project => (
         <Box 
           key={project.id}
@@ -82,3 +87,5 @@ export const SmallTiles = () => {
 };
 
 export default ProjectTiles;
+
+export { SmallTiles };
