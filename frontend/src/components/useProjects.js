@@ -1,30 +1,46 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import config from '../config';
+
+const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 
 const useProjects = () => {
-  const [projects, setProjects] = useState(JSON.parse(localStorage.getItem('projects')) || []);
+  const [projects, setProjects] = useState([]);
   const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   const fetchProjects = async () => {
     try {
-      const response = await axios.get(`${config.apiBaseUrl}${config.endpoints.projects}`);
-      const projectsData = response.data;
-      
-      // Transform the data to match the frontend structure
-      const transformedProjects = projectsData.map(project => ({
-        id: project.id,
-        project_name: project.projectName,
-        description: project.desc,
-        img_url: project.imgUrl,
-        tags: project.tags // Keep tags as an array
-      }));
+      setLoading(true);
+      setError(null);
+      console.log('Fetching from:', `${BACKEND_URL}/api/projects`);
 
-      localStorage.setItem('projects', JSON.stringify(transformedProjects));
-      setProjects(transformedProjects);
+      const response = await axios.get(`${BACKEND_URL}/api/projects`, {
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        }
+      });
+      
+      console.log('Response:', response);
+      
+      if (response.data) {
+        // The response already contains presigned URLs, so we can use it directly
+        setProjects(response.data);
+        localStorage.setItem('projects', JSON.stringify(response.data));
+      }
     } catch (error) {
-      setError('Error fetching projects');
       console.error('Error fetching projects:', error);
+      const errorMessage = error.response?.data?.error 
+        || error.message 
+        || 'Error fetching projects';
+      setError(errorMessage);
+      // Try to load from localStorage as fallback
+      const cachedProjects = localStorage.getItem('projects');
+      if (cachedProjects) {
+        setProjects(JSON.parse(cachedProjects));
+      }
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -32,7 +48,13 @@ const useProjects = () => {
     fetchProjects();
   }, []);
 
-  return { projects, error, fetchProjects };
+  return { 
+    projects, 
+    error, 
+    loading, 
+    fetchProjects,
+    backendUrl: BACKEND_URL
+  }; 
 };
 
-export default useProjects;
+export default useProjects; 
