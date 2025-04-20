@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import config from '../config';
 
 const useProjects = () => {
   const [projects, setProjects] = useState(JSON.parse(localStorage.getItem('projects')) || []);
@@ -7,24 +8,31 @@ const useProjects = () => {
 
   const fetchProjects = async () => {
     try {
-      const response = await axios.get('/getProjects');
-      localStorage.setItem('projects', JSON.stringify(response.data));
-      setProjects(response.data); 
+      const response = await axios.get(`${config.apiBaseUrl}${config.endpoints.projects}`);
+      const projectsData = response.data;
+      
+      // Transform the data to match the frontend structure
+      const transformedProjects = projectsData.map(project => ({
+        id: project.id,
+        project_name: project.projectName,
+        description: project.desc,
+        img_url: project.imgUrl,
+        tags: project.tags // Keep tags as an array
+      }));
+
+      localStorage.setItem('projects', JSON.stringify(transformedProjects));
+      setProjects(transformedProjects);
     } catch (error) {
-      setError('Error fetching data');
-      console.error('There was an error!', error);
+      setError('Error fetching projects');
+      console.error('Error fetching projects:', error);
     }
   };
 
   useEffect(() => {
-    if (!localStorage.getItem('projects')) {
-      fetchProjects();
-    } else {
-      setProjects(JSON.parse(localStorage.getItem('projects')));
-    }
+    fetchProjects();
   }, []);
 
-  return { projects, error, fetchProjects }; 
+  return { projects, error, fetchProjects };
 };
 
 export default useProjects;

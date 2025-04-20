@@ -3,20 +3,15 @@ import { SimpleGrid, Box, Text, Image, Heading, Stack } from '@chakra-ui/react';
 import useProjects from './useProjects'; 
 
 const parseTags = ({ tags }) => {
-  const tagLines = tags.split(' ');
-
+  // tags is already an array, no need to split
   return (
     <Stack direction="row" spacing="3" wrap="wrap" display="flex" justifyContent="center" alignContent="center">
-      {tagLines.map((tag, index) => 
+      {tags.map((tag, index) => 
         tag ? (
           <Text key={index} fontSize="xs" bg="teal" padding="4px" color='white' fontWeight='bold'>
             {tag.toUpperCase()}
           </Text>
-        ) : (
-          <Text key={index} fontSize="sm" bg='white' p={1} mr={1}>
-            {'\u00A0'}
-          </Text>
-        )
+        ) : null
       )}
     </Stack>
   );
