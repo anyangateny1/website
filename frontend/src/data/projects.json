@@ -4,7 +4,7 @@
       "projectName": "Personal Website",
       "projectDate": "Jun 2024",
       "desc": "A personal portfolio website showcasing my projects and skills.",
-      "imgUrl": "/images/personal-website.png",
+      "imgUrl": "/api/images/personal-website",
       "tags": ["fullstack", "portfolio", "web-development"]
     },
     {
@@ -12,7 +12,7 @@
       "projectName": "Happy Pets",
       "projectDate": "Apr 2024",
       "desc": "A full-stack website to simulate an adoption center.",
-      "imgUrl": "/images/happy-pets.png",
+      "imgUrl": "/api/images/happy-pets",
       "tags": ["fullstack", "web-development"]
     },
     {
@@ -20,7 +20,7 @@
       "projectName": "LibCheck",
       "projectDate": "Dec 2023",
       "desc": "A web-app that automates book searches on a library website.",
-      "imgUrl": "/images/lib-check.png",
+      "imgUrl": "/api/images/lib-check",
       "tags": ["automation", "web-development", "web-scraping"]
     }
   ]
